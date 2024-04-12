@@ -13,6 +13,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path("", include("applications.core.urls")),
+    path("services", include("applications.services.urls", namespace="services")),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

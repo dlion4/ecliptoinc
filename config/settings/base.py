@@ -76,8 +76,9 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "django.contrib.humanize", # Handy template tags
+    "django.contrib.humanize",  # Handy template tags
     "django.contrib.admin",
+    "django.contrib.postgres",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -374,7 +375,7 @@ SPECTACULAR_SETTINGS: Dict[str, Union[List[Dict[str, Any]], str, List[str]]] = {
 # https://django-storages.readthedocs.io/en/latest/#installation
 INSTALLED_APPS += ["storages"]
 
-USE_S3 = env("USE_S3", default=False)
+USE_S3 = env.bool("USE_S3", default=True)
 
 STORAGES = {
     "default": {
@@ -421,6 +422,10 @@ if USE_S3:
     MEDIA_URL = f"https://{aws_s3_domain}/media/"
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     STATIC_URL = f"https://{aws_s3_domain}/static/"
+
+    MEDIA_ROOT = str(APPS_DIR / "media")
+    STATIC_ROOT = str(BASE_DIR / "staticfiles")
+
 
 else:
     # STATIC

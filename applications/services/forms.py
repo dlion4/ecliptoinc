@@ -1,6 +1,6 @@
-from applications.core.models import RequestQuoteContact
+# from applications.core.models import RequestQuoteContact
 from django import forms
-from applications.services.models import Pricing # type: ignore
+from applications.services.models import Pricing  # type: ignore
 
 
 class RequestQuoteContactForm(forms.ModelForm):
@@ -23,5 +23,5 @@ class RequestQuoteContactForm(forms.ModelForm):
     )
 
     class Meta:
-        model = RequestQuoteContact
+        # model = RequestQuoteContact
         fields = ["full_name", "occupation", "email", "package", "message"]
