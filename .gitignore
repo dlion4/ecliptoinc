@@ -279,8 +279,8 @@ ecliptoinc/media/
 .env
 .env.local
 .env.production
-.envs/*
-!.envs/.local/
+.envs/
+
 
 # templates
 
