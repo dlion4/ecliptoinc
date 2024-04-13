@@ -286,3 +286,9 @@ ecliptoinc/media/
 
 templates
 !ecliptoinc/templates
+
+.github/
+local.yml
+production.yml
+docs.yml
+
