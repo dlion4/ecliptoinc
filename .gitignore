@@ -284,4 +284,5 @@ ecliptoinc/media/
 
 # templates
 
-templates/
+templates
+!ecliptoinc/templates

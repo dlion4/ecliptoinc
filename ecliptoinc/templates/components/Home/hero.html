@@ -1,0 +1,39 @@
+{% load static %}
+
+<section class="section-box">
+  <div class="banner-hero hero-5">
+    <div class="banner-image-main">
+      <div class="img-bg"></div>
+      <div class="blur-bg blur-move"></div>
+    </div>
+    <div class="banner-inner-top">
+      <div class="container">
+        <div class="box-banner-left">
+          <a class="btn btn-brand-5-new mb-20" href="{% url 'careers' %}">
+            <span>New</span>We're are hiring
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 22 22" fill="none">
+              <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill=""></path>
+            </svg>
+          </a>
+          {% comment %} <h1 class="display-2 mb-30 mt-25 neutral-0">Get the insights you need to improve your business</h1> {% endcomment %}
+          <h1 class="display-2 mb-25 neutral-0 mt-5">Build Your <span class="text-bg-brand-4 ml-5">Dream</span> Website with Our<br class="d-none d-lg-block"> Skilled Team</h1>
+          <p class="text-lg neutral-500 mb-55">Use our analytics, reporting, and AI-assisted optimization tools to monitor trends, track performance, and create better campaigns that reach more customers likely to engage and convert.</p>
+          <div class="d-flex mb-60">
+            <a class="hover-up mr-5" href="#"><img src="{% static 'assets/imgs/page/homepage1/googleplay.png' %}" alt="Eclipto"></a>
+            <a class="hover-up" href="#"><img src="{% static 'assets/imgs/page/homepage1/appstore.png' %}" alt="Eclipto"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner-inner-bottom">
+      <div class="container">
+        <div class="box-joined">
+          <div class="box-authors">
+            <span class="item-author"><img src="{% static 'assets/imgs/page/homepage1/author.png' %}" alt="Eclipto"></span><span class="item-author"><img src="{% static 'assets/imgs/page/homepage1/author2.png' %}" alt="Eclipto"></span><span class="item-author"><img src="{% static 'assets/imgs/page/homepage1/author3.png' %}" alt="Eclipto"></span><span class="item-author"><span class="text-num-author text-md-bold color-brand-2">+2k</span></span></div>
+          <span class="text-lg d-inline-block">Join thousands of users in using<br class="d-none d-md-block">the Eclipto platform!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

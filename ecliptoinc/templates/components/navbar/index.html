@@ -1,0 +1,275 @@
+{% load static %}
+
+<header style="box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.05); {% if request.resolver_match.view_name == 'home' %}'' {% else %}background: #2B2C2D;{% endif %}" class="header sticky-bar {% block stick %}{% endblock %}">
+  <div class="container">
+    <div class="main-header">
+      <div class="header-left">
+        <div class="header-logo">
+          <a class='d-flex' href='{% url "home" %}'>
+            <img alt="Eclipto" src="{% static 'assets/imgs/template/logo.svg' %}"></a>
+        </div>
+        <div class="header-nav">
+          <nav class="nav-main-menu d-none d-xl-block">
+            <ul class="main-menu">
+              <li>
+                <a class='active' href='{% url 'home' %}'>Home</a>
+
+              </li>
+              <li class="has-children">
+                <a href="{% url 'about' %}">About</a>
+              </li>
+              <li class="has-children">
+                <a href="{% url 'services:services' %}">Services</a>
+              </li>
+              <li class="mega-li has-children">
+                <a href="#">Pages</a>
+                <div class="mega-menu">
+                  <div class="mega-menu-inner">
+                    <div class="row">
+                      <div class="col-lg-8">
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <h6>Home</h6>
+                            <ul>
+                              <li>
+                                <a href=''>Business Solutions</a>
+                              </li>
+                              <li>
+                                <a href=''>Marketing App</a>
+                              </li>
+                              <li>
+                                <a href=''>Web Agency</a>
+                              </li>
+                              <li>
+                                <a href=''>Digital Agency</a>
+                              </li>
+                              <li>
+                                <a href=''>3D Products</a>
+                              </li>
+                              <li>
+                                <a href=''>AI Platform</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <h6>Pages</h6>
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <ul>
+                                  <li>
+                                    <a href=''>About Us</a>
+                                  </li>
+                                  <li>
+                                    <a href="{% url 'services:services' %}">Services</a>
+                                  </li>
+                                  <li>
+                                    <a href=''>Integrations</a>
+                                  </li>
+                                </ul>
+                              </div>
+
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <h6>Utility pages</h6>
+                            <ul>
+                              <li>
+                                <a href=''>Register</a>
+                              </li>
+                              <li>
+                                <a href=''>Sign In</a>
+                              </li>
+                              <li>
+                                <a href=''>Forgot password</a>
+                              </li>
+                              <li>
+                                <a href=''>Terms & conditions</a>
+                              </li>
+                              <li>
+                                <a href=''>404 Not found</a>
+                              </li>
+                              <li>
+                                <a href=''>Change log</a>
+                              </li>
+                              <li>
+                                <a href=''>Comming soon</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="box-desc-menu">
+                          <h6 class="text-16-semibold">Eclipto - Digital & Design Agency</h6>
+                          <p class="text-xs mt-10 mb-25">We're currently lookign for ambitious and the talented individuals to work and grow with us ...
+                          </p>
+                          <a class="btn btn-black-md btn-rounded" href="{% url 'careers' %}">Apply Now
+                            <svg width="22" height="8" viewbox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M22 4.00032L18.4791 0.479492V3.3074H0V4.69333H18.4791V7.52129L22 4.00032Z" fill=""></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="has-children">
+                <a href=''>Articles</a>
+              </li>
+              <li class="has-children">
+                <a href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="header-right">
+        <a class="btn btn-search hover-up" href="#"></a>
+        <div class="form-search p-20 dark">
+          <form action="#">
+            <input class="form-control" type="text" placeholder="Search">
+            <input class="btn-search-2" type="submit" value="">
+          </form>
+          <div class="popular-keywords text-start mt-20">
+            <p class="mb-10 color-white">Popular search:</p>
+            <a class="color-gray-600 mr-10 font-xs" href="#">Platform,</a>
+            <a class="color-gray-600 mr-10 font-xs" href="#"># Database,</a>
+            <a class="color-gray-600 mr-10 font-xs" href="#"># Price</a>
+          </div>
+        </div>
+        <a class="btn btn-brand-4-medium hover-up" href="{% url 'contact' %}">Get Started
+          <svg width="22" height="22" viewbox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill=""></path>
+          </svg>
+        </a>
+        <div class="burger-icon burger-icon-white">
+          <span class="burger-icon-top"></span>
+          <span class="burger-icon-mid"></span>
+          <span class="burger-icon-bottom"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
+  <div class="mobile-header-wrapper-inner">
+    <div class="burger-icon burger-icon-white">
+      <span class="burger-icon-top"></span>
+      <span class="burger-icon-mid"></span>
+      <span class="burger-icon-bottom"></span></div>
+    {% comment %} <div class="mobile-header-top">
+      <div class="user-account"><img src="{% static 'assets/imgs/page/homepage6/author.png' %}" alt="Eclipto">
+        <div class="content">
+          <h6 class="user-name">John Smith</h6>
+          <p class="font-xs text-muted">You have 4 new messages</p>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <div class="mobile-header-content-area">
+      <div class="perfect-scroll">
+        <div class="mobile-search mobile-header-border mb-30">
+          <form action="#">
+            <input type="text" placeholder="Search for items…">
+            <i class="fi-rr-search"></i>
+          </form>
+        </div>
+        <div class="mobile-menu-wrap mobile-header-border">
+          <nav>
+            <ul class="mobile-menu font-heading">
+              <li class="has-children">
+                <a class='active' href="{% url 'home' %}">Home</a>
+
+              </li>
+              <li class="has-children">
+                <a href="#">Inner Pages</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="{% url 'about' %}">About Us</a>
+                  </li>
+                  <li>
+                    <a href=''>Our Services</a>
+                  </li>
+                  <li>
+                    <a href=''>Pricing Plan</a>
+                  </li>
+                  <li>
+                    <a href=''>Help Center</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'careers' %}">Careers</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'contact' %}">Contact us</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-children">
+                <a href="#">Utility pages</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href=''>Register</a>
+                  </li>
+                  <li>
+                    <a href=''>Sign In</a>
+                  </li>
+                  <li>
+                    <a href=''>Forgot password</a>
+                  </li>
+                  <li>
+                    <a href=''>Terms & conditions</a>
+                  </li>
+                  <li>
+                    <a href=''>404 Not found</a>
+                  </li>
+                  <li>
+                    <a href=''>Change log</a>
+                  </li>
+                  <li>
+                    <a href=''>Comming soon</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="mobile-account">
+          <h6 class="mb-10">Your Account</h6>
+          <ul class="mobile-menu font-heading">
+            <li>
+              <a href="#">Profile</a>
+            </li>
+            <li>
+              <a href="#">Work Preferences</a>
+            </li>
+            <li>
+              <a href="#">My Boosted Shots</a>
+            </li>
+            <li>
+              <a href="#">My Collections</a>
+            </li>
+            <li>
+              <a href="#">Account Settings</a>
+            </li>
+            <li>
+              <a href="#">Go Pro</a>
+            </li>
+            <li>
+              <a href=''>Sign Out</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mobile-social-icon mb-50">
+          <h6 class="mb-25">Follow Us</h6>
+          <a class="icon-socials icon-facebook" href="javascript:void(0)"><img alt="Eclipto" src="{% static 'assets/imgs/template/icons/fb.svg' %}"></a>
+          <a class="icon-socials icon-instagram" href="javascript:void(0)"><img alt="Eclipto" src="{% static 'assets/imgs/template/icons/in.svg' %}"></a>
+          <a class="icon-socials icon-twitter" href="javascript:void(0)"><img alt="Eclipto" src="{% static 'assets/imgs/template/icons/tw.svg' %}"></a>
+          <a class="icon-socials icon-be" href="javascript:void(0)"><img alt="Eclipto" src="{% static 'assets/imgs/template/icons/be.svg' %}"></a>
+        </div>
+        <div class="site-copyright">Copyright <span id="copyright"></span> &copy; Eclipto.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script> document.getElementById("copyright").innerHTML = new Date().getFullYear();</script>
