@@ -15,22 +15,20 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-class ServiceListView(TemplateView):
-    template_name = "pages/services.html"
-
+class CachedPageViewMixin(TemplateView):
     @method_decorator(cache_page(60 * 60 * 24))
     def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
         return super().dispatch(request, *args, **kwargs)
 
 
-class ServiceView(TemplateView):
+class ServiceListView(CachedPageViewMixin):
+    template_name = "pages/services.html"
+
+
+class ServiceView(CachedPageViewMixin):
     category = Category
     template_name = "pages/service.html"
     # form_class = RequestQuoteContactForm
-
-    @method_decorator(cache_page(60 * 60 * 24))
-    def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
-        return super().dispatch(request, *args, **kwargs)
 
     def get_object(self, **kwargs):
         return get_object_or_404(self.category, slug=kwargs.get("slug"))
@@ -40,3 +38,7 @@ class ServiceView(TemplateView):
         context["category"] = self.get_object(**kwargs)
         context["form"] = self.form_class()
         return context
+
+
+class FeatureListView(CachedPageViewMixin):
+    template_name = "pages/features.html"

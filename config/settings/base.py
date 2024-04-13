@@ -461,3 +461,5 @@ else:
 #         },
 #     },
 # }
+
+APPEND_SLASH =False
