@@ -31,7 +31,6 @@ drf-spectacular==0.27.2  # https://github.com/tfranzel/drf-spectacular
 python-dotenv==1.0.1 #https://pypi.org/project/python-dotenv/
 # Linting|Error reorting
 sentry-sdk[django]==1.45.0
-mypy==1.0.0
 
 django-nested-inline==0.4.6 #https://pypi.org/project/django-nested-inline/
 divio-cli==4.0.0 #https://docs.divio.com/introduction/installation#install-the-divio-cli-package
