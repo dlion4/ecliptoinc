@@ -462,4 +462,14 @@ else:
 #     },
 # }
 
-APPEND_SLASH =False
+APPEND_SLASH = False
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://www.*.com",
+    "https://www.*.com",
+    "http://*.com",
+    "https://*.com",
+]
