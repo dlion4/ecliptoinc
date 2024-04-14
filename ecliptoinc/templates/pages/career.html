@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% load cache %}
-
+{% block css %}
+  {{ block.super }}
+  #sticky-sidebar{ position: sticky; top: 0; }
+{% endblock css %}
 {% load static %}
 {% block main %}
 
-  <section class="section-box box-content-detail">
+  <section class="section-box box-content-detail mt-50">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 order-lg-last">
+        <div class="col-lg-5 order-lg-middle">
           <div class="head-detail">
-            <p class="text-md neutral-500 mb-12">{{position.created_at|date:"Y, M d"}}, by<a class="text-md-bold neutral-1000 ml-25" href="javascript:void()">Admin</a>
+            <p class="text-md neutral-500 mb-12">{{position.created_at|date:"Y, M d"}}, by<a class="text-md-bold neutral-1000 ml-10" href="javascript:void()">Admin</a>
             </p>
             <h3 class="mb-12">{{position.title|title}}</h3>
             <div class="box-button-tags">
@@ -63,8 +66,13 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-3 order-lg-right dark ml-5" id="sticky-sidebar" style="background-color:#000000;">
+          <div class="sidebar">
+            sticky section
+          </div>
+        </div>
       </div>
-    </div>
+    </div>``
   </section>
   {% if related_positions %}
 
@@ -175,4 +183,34 @@
     </div>
   </section>
 
+
+
+  <script type="text/javascript">
+
+/* Project specific Javascript goes here. */
+const stickySidebar = document.getElementById("sticky-sidebar");
+// Get the initial top offset of the sticky section
+const stickySidebarOffset = stickySidebar.offsetTop;
+
+// Function to change position to static when section reaches the top
+function checkScroll() {
+  if (window.pageYOffset >= stickySectionOffset) {
+    stickySidebar.style.position = "static";
+  } else {
+    stickySidebar.style.position = "sticky";
+  }
+}
+
+// Add scroll event listener to check scroll position
+window.addEventListener("scroll", checkScroll);
+// window.removeEventListener("scroll", checkScroll);
+
+  </script>
+
+
 {% endblock main %}
+
+{% block inline_javascript %}
+
+
+{% endblock inline_javascript %}

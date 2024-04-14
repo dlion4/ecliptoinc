@@ -288,6 +288,7 @@ templates
 !ecliptoinc/templates
 
 .github/
+.envs/
 local.yml
 production.yml
 docs.yml

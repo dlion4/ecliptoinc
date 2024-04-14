@@ -59,10 +59,10 @@ class Position(models.Model):
         return (
             f"{self.min_salary} - {self.max_salary}"
             if self.min_salary and self.max_salary
-            else self.min_salary or self.max_salary or ""
+            else self.min_salary or self.max_salary
         )
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        self.expiry = timezone.now() + datetime.timedelta(days=45)
+        self.expiry += datetime.timedelta(days=45)
         super(Position, self).save(*args, **kwargs)
