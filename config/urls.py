@@ -15,7 +15,7 @@ urlpatterns = [
     path("", include("applications.core.urls")),
     path("services", include("applications.services.urls", namespace="services")),
     # Django Admin, use {% url 'admin:index' %}
-    path(settings.ADMIN_URL, admin.site.urls),
+    path("admin", admin.site.urls),
     # User management
     path("users/", include("applications.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),

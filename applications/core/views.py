@@ -1,8 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views import View
 from django.views.generic import TemplateView
 from django.views.decorators.cache import cache_page
 from .models import Position, Division
-
+from .form import ContactForm, NewsletterForm
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 # Create your views here.
 from applications.services.models import Category
@@ -77,5 +82,53 @@ class CareerPositionView(TemplateView):
         return context
 
 
-class ContactView(TemplateView):
+class ContactView(View):
+
     template_name = "pages/contact.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {})
+
+    def get_template_names(self, name):
+        return (
+            """
+                <p class="text-md green-700">
+                Hello %s, your message was delivered successfully!
+                </p>
+                """
+            % name
+        )
+
+    @method_decorator(csrf_exempt)
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            messages.success(
+                request,
+                "<strong>Hello %s!</strong>, your message was delivered successfully!"
+                % form.cleaned_data.get("name"),
+            )
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+
+from .models import Newsletter
+
+
+class NewsletterView(View):
+    newsletter_form = NewsletterForm
+    newsletter = Newsletter
+
+    def post(self, request, *args, **kwargs):
+        form = self.newsletter_form(request.POST)
+        if form.is_valid():
+            newsletter = self.newsletter.objects.filter(  # type:ignore
+                email=form.cleaned_data.get("email")
+            )  # type:ignore
+            if newsletter.exists():
+                messages.info(request, "This email is already subscribed!")
+                return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+            form.save()
+            messages.success(request, "You've been subscribed to our newsletter!")
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

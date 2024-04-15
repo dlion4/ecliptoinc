@@ -66,3 +66,19 @@ class Position(models.Model):
         self.slug = slugify(self.title)
         self.expiry += datetime.timedelta(days=45)
         super(Position, self).save(*args, **kwargs)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+class Newsletter(models.Model):
+    email = models.EmailField(max_length=100)
+    subscription_date = models.DateField(auto_now_add=True)

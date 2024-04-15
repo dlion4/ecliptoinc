@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Division, Position
+from .models import Division, Position, Contact
 
 
 class PositionInline(admin.StackedInline):
@@ -19,3 +19,13 @@ class DivisionAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         "slug": ("name",),
     }
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "is_read")
+    list_filter = ("is_read",)
+    search_fields = ("name", "email", "message")
+    readonly_fields = ("name", "email", "message", "created_at")
+    list_per_page = 25
+
