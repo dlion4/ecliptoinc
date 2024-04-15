@@ -141,76 +141,29 @@
       </div>
     </section>
   {% endif %}
-  <section class="section-box box-get-touch-section" id="contact">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="box-image-get-touch">
-            <span class="setup"><img src="{% static 'assets/imgs/page/about/setup.png' %}" alt="Eclepto"></span><span class="icon-1"><img src="{% static 'assets/imgs/page/about/icon.png' %}" alt="Eclepto"></span><img src="{% static 'assets/imgs/page/about/img-touch.png' %}" alt="Eclepto"></div>
-        </div>
-        <div class="col-lg-6">
-          <a class="btn btn-brand-4-sm" href="#">Contact Us</a>
-          <h2 class="mb-20 mt-20">Get in Touch</h2>
-          <p class="text-md neutral-700">Contact us below and we will get back to you shortly.</p>
-          <div class="block-form-contact mt-45">
-            <form action="#">
-              <div class="form-group">
-                <label for="fullname">
-                  Your Name *</label>
-                <input class="form-control" type="text" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="fullname">
-                  Your Email *</label>
-                <input class="form-control" type="text" placeholder="email@website.com">
-              </div>
-              <div class="form-group">
-                <label for="fullname">
-                  Message *</label>
-                <textarea class="form-control" rows="7" placeholder="How can we help you?"></textarea>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-black btn-rounded" type="submit">Send Message
-                  <svg width="22" height="8" viewbox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 3.99934L18.4791 0.478516V3.30642H0V4.69236H18.4791V7.52031L22 3.99934Z" fill=""></path>
-                  </svg>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
+  {% include "components/shared/contact.html" %}
 
   <script type="text/javascript">
+    /* Project specific Javascript goes here. */
+    const stickySidebar = document.getElementById("sticky-sidebar");
+    // Get the initial top offset of the sticky section
+    const stickySidebarOffset = stickySidebar.offsetTop;
 
-/* Project specific Javascript goes here. */
-const stickySidebar = document.getElementById("sticky-sidebar");
-// Get the initial top offset of the sticky section
-const stickySidebarOffset = stickySidebar.offsetTop;
+    // Function to change position to static when section reaches the top
+    function checkScroll() {
+      if (window.pageYOffset >= stickySectionOffset) {
+        stickySidebar.style.position = "static";
+      } else {
+        stickySidebar.style.position = "sticky";
+      }
+    }
 
-// Function to change position to static when section reaches the top
-function checkScroll() {
-  if (window.pageYOffset >= stickySectionOffset) {
-    stickySidebar.style.position = "static";
-  } else {
-    stickySidebar.style.position = "sticky";
-  }
-}
-
-// Add scroll event listener to check scroll position
-window.addEventListener("scroll", checkScroll);
-// window.removeEventListener("scroll", checkScroll);
-
+    // Add scroll event listener to check scroll position
+    window.addEventListener("scroll", checkScroll);
+    // window.removeEventListener("scroll", checkScroll);
   </script>
-
 
 {% endblock main %}
 
-{% block inline_javascript %}
-
-
-{% endblock inline_javascript %}
+{% block inline_javascript %}{% endblock inline_javascript %}

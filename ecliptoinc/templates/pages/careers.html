@@ -226,20 +226,14 @@
       </div>
     </div>
     <div class="container mt-25">
+      {% include "components/shared/messages.html" %}
       <div class="box-newsletter">
         <div class="newsletter-left">
           <h2>Join our community</h2>
           <p class="text-md neutral-600">Work smarter with this time management and not hard join our newsletter for a better expertrience</p>
         </div>
         <div class="newsletter-right">
-          <form action="#">
-            <input class="form-control" type="text" placeholder="Email address...">
-            <button class="btn btn-subscribe" type="submit">Subscribe
-              <svg width="22" height="22" viewbox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 10.9993L18.4791 7.47852V10.3064H0V11.6924H18.4791V14.5203L22 10.9993Z" fill=""></path>
-              </svg>
-            </button>
-          </form>
+          {% include "components/shared/newsletter.html" %}
         </div>
       </div>
     </div>
@@ -248,7 +242,7 @@
     <div class="text-center">
       <h2 class="heading-1 mt-15 mb-20">Have Any Project?<br class="d-none d-lg-block">Let’s Talk & Grow your Business</h2>
       <p class="text-lg neutral-500 mb-35">We’r ready to help you. Our expert is here, just send a message.</p>
-      <a class="btn btn-brand-4" href="#">Get started
+      <a class="btn btn-brand-4" href="{% url 'contact' %}">Get started
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 22 22" fill="none">
           <path d="M22 10.9993L18.4791 7.47852V10.3064H0V11.6924H18.4791V14.5203L22 10.9993Z" fill=""></path>
         </svg>

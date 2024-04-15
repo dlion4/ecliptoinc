@@ -7,7 +7,8 @@
         <a href=''><img alt="Eclipto" src="{% static 'assets/imgs/template/logo.svg' %}"></a>
         <div class="mt-20 mb-20">
           <p class="text-md neutral-600 mb-10">{{site_address}}</p>
-          <p class="text-md neutral-600">Office Hours: {{office_hours}}</p>
+          <p class="text-md neutral-600">Office Hours:
+            {{office_hours}}</p>
           <p class="text-md neutral-600">Operation Hours:{{opperation_hours}}</p>
         </div>
       </div>
@@ -17,10 +18,10 @@
             <h5 class="neutral-0 mb-10 text-18-semibold neutral-0">About</h5>
             <ul class="menu-footer">
               <li>
-                <a href="">Company</a>
+                <a href="{% url 'home' %}">Company</a>
               </li>
               <li>
-                <a href="">Careers</a>
+                <a href="{% url 'careers' %}">Careers</a>
               </li>
               <li>
                 <a href="">Press media</a>
@@ -99,17 +100,13 @@
     <div class="footer-bottom mt-0">
       <div class="row align-items-end">
         <div class="col-lg-6 mb-20">
+
+          {% include "components/shared/messages.html" %}
+
           <h5 class="text-18-semibold neutral-0">Join our newsletter</h5>
           <p class="text-sm neutral-600 mb-20">No ads. No trails. No commitments</p>
           <div class="form-newsletter form-newsletter-2">
-            <form>
-              <input class="form-control" type="text" placeholder="email address">
-              <button class="btn btn-brand-4-medium">Subscribe
-                <svg width="22" height="22" viewbox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill=""></path>
-                </svg>
-              </button>
-            </form>
+            {% include "components/shared/newsletter.html" %}
           </div>
         </div>
         <div class="col-lg-6 text-lg-end text-center">
